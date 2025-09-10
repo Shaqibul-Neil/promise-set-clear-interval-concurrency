@@ -85,3 +85,65 @@
 //   .then((response) => console.log(response))
 //   .catch((error) => console.log(error))
 //   .finally(() => console.log("Promise done"));
+
+//async await in details wrapping up set time out
+// const delay = (ms) =>
+//   new Promise((resolve, reject) => {
+//     if (ms < 0) {
+//       reject("❌❌");
+//     } else {
+//       setTimeout(resolve, ms); //set time out e resolve function call kortesi resolve()
+//     }
+//   });
+// const loadData = async () => {
+//   console.log(1);
+//   console.log(2);
+//   await delay(1000);
+//   console.log(3);
+//   console.log(4);
+//   console.log(5);
+// };
+// loadData();
+
+/*
+delay(1000) কল করলে নতুন promise তৈরি হয়।
+promise-এর ভেতরে setTimeout চালু হয়।
+১ সেকেন্ড পরে setTimeout তার callback চালাবে, আর callback এ গিয়ে resolve() ট্রিগার করবে।
+resolve হওয়ার পর await delay(1000) unblock হয়ে যায়, মানে async ফাংশন আবার চালু হয়।
+*/
+
+// function getApple() {
+//   setTimeout(() => {
+//     console.log("🍎");
+//   }, 3000);
+// }
+function getBanana() {
+  setTimeout(() => {
+    console.log("🍌");
+  }, 1000);
+}
+//banana comes first
+getApple();
+getBanana();
+//but if we want apple to come first make a promise
+function getApple() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("🍎");
+    }, 3000);
+  });
+}
+function getBanana() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("🍌");
+    }, 1000);
+  });
+}
+async function fetchFruits() {
+  const apple = await getApple();
+  console.log(apple);
+  const banana = await getBanana(); //await ekhane na dileo hbe
+  console.log(banana);
+}
+fetchFruits();
