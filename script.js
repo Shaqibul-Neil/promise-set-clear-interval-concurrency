@@ -117,33 +117,58 @@ resolve হওয়ার পর await delay(1000) unblock হয়ে যায়, �
 //     console.log("🍎");
 //   }, 3000);
 // }
-function getBanana() {
-  setTimeout(() => {
-    console.log("🍌");
-  }, 1000);
-}
+// function getBanana() {
+//   setTimeout(() => {
+//     console.log("🍌");
+//   }, 1000);
+// }
 //banana comes first
-getApple();
-getBanana();
+// getApple();
+// getBanana();
 //but if we want apple to come first make a promise
-function getApple() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("🍎");
-    }, 3000);
-  });
-}
-function getBanana() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("🍌");
-    }, 1000);
-  });
-}
-async function fetchFruits() {
-  const apple = await getApple();
-  console.log(apple);
-  const banana = await getBanana(); //await ekhane na dileo hbe
-  console.log(banana);
-}
-fetchFruits();
+// function getApple() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("🍎");
+//     }, 3000);
+//   });
+// }
+// function getBanana() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve("🍌");
+//     }, 1000);
+//   });
+// }
+// async function fetchFruits() {
+//   const apple = await getApple();
+//   console.log(apple);
+//   const banana = await getBanana(); //await ekhane na dileo hbe
+//   console.log(banana);
+// }
+// console.log(5);
+// fetchFruits();
+
+//set interval and clear interval
+
+// console.log(1);
+// console.log(2);
+
+// const timeoutId = setTimeout(() => {
+//   console.log(3);
+// }, 1000);
+// console.log("timeoutId", timeoutId);
+// console.log(4);
+// console.log(5);
+// clearTimeout(timeoutId);
+
+// console.log(1);
+// console.log(2);
+// let count = 0;
+// const intervalId = setInterval(() => {
+//   console.log(count++);
+//   if (count > 10) clearInterval(intervalId);
+// }, 1000);
+// console.log("intervalId", intervalId);
+// console.log(4);
+// console.log(5);
