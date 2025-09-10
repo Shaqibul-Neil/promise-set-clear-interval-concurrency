@@ -10,6 +10,19 @@
 // });
 // getData.then((data) => console.log(data)).catch((error) => console.log(error));
 
+// const getData = new Promise((resolve, reject) => {
+//   const num = Math.random() * 10;
+//   console.log(num);
+//   //calling resolve and reject function send it as obj to get the value
+//   if (num > 3) resolve({ status: "resolved", value: num });
+//   else reject({ status: "rejected", value: num });
+// });
+// //consuming a promise with then catch and finally.
+// getData
+//   .then((data) => console.log("✅", data))
+//   .catch((error) => console.log("❌", error))
+//   .finally(() => console.log("Promise finished"));
+
 //promise All
 // const getData1 = new Promise((resolve, reject) => {
 //   const num = Math.random() * 10;
